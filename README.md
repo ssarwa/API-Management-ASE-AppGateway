@@ -8,7 +8,7 @@ For this project, we have a fairly self-explanatory Architecture diagram as belo
 
  ![alt](https://res.cloudinary.com/drlwgs1ub/image/upload/v1551912360/apim.jpg)
 
-#####Challenges we faced
+### Challenges we faced
 
 * The source control could be in Public Github or internal Source repo and should be accessible from anywhere.
 * CI/CD pipelines depends on in built in Hosted Agents and needed to be accessible from public. Since the API Apps were hosted internally, there needed a infrastructure within the VNET to act like a Hosted Agent for Azure DevOps
@@ -19,12 +19,12 @@ For this project, we have a fairly self-explanatory Architecture diagram as belo
  * Look for how to configure Policies in APIM here: https://docs.microsoft.com/en-us/azure/api-management/api-management-transformation-policies#SetHTTPheader 
 * Even after specifying the HOST values, initially for Test Domain (that we didn’t own) the Portal Test features failed as the APIM service tries to resolve the DNS entries publicly. We were able to achieve this by using our Own Custom Domain and adding CNAME entries in our godaddy DNS settings.
 
-#####Prereqs
+### Prereqs
 
 1. Custom Domain Name purchased (like on godaddy)
 2. Since we are using actual custom domain, procuring a SSL certificates (we used a wild card one from Azure Certificates Service) to use one for all our custom domains
 
-#####Deployment flow for the resources and putting the pieces together  
+### Deployment flow for the resources and putting the pieces together  
 The deployment process was in the sequence as below
 
 1. VNET with the following configurations: ase-internal-vnet
@@ -71,7 +71,7 @@ The deployment process was in the sequence as below
 10. Configured the DNS entries in Godaddy CNAME entries of api.sarwascloud.com and portal.sarwascloud.com with App Gateway’s public DNS name: ase-appgtwy.westus.cloudapp.azure.com
 
 Once we have the above resources configured, we were able to
-==Reach the Dev Portal from Public==  
-==Able to test the APIM services APIs using Azure Portal==
+> Reach the Dev Portal from Public  
+Able to test the APIM services APIs using Azure Portal
 
 *Note that it is not a good practice to use same URL for Internal and External Devs for the APIM services (currently in the above demo, both URLs are same). If we want to choose to have different URLs for internal and external devs, we could make use of App Gateway WAF v2 which supports http redirection and much more.*
