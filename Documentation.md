@@ -1,11 +1,7 @@
-# API-Management-ASE-AppGateway
-Deployment of Internal VNET API Management consuming APIs from Internal ASE. Accessing the APIM through Application gateway
+# Access API Management service consuming APIs from App Service Environments on internal VNET using Application Gateway
+There are few scenarios where organizations host multiple APIs using App Service Environments and would want to make use of these APIs using API Management service. The API Management could also be exposed to external users (as well as Internal developers) as well to utlize the full potential of the APIs. This could be achieved using Application Gateways connected to Internal API Management service which inturn consumes apps in ASE. The most interesting part was since both App Service Env and APIM services were hosted internally on the VNET, having them working together took new challenges. This requires adding HOST headers to APIM service and consume the APIs using ASE’s DNS.
 
-
-This week we had a very interesting project to have internal business APIs hosted in App Service Environment to be consumed through an API Management and be available to Public devs (as well as Internal developers). The most interesting part was since both App Service Env and APIM services were hosted internally on the VNET, having them working took new challenges. We got it finally worked after we added HOST headers to APIM service and consume the APIs using ASE’s DNS.
-
-For this project, we have a fairly self-explanatory Architecture diagram as below.
-
+### Architecture
  ![alt](https://res.cloudinary.com/drlwgs1ub/image/upload/v1551912360/apim.jpg)
 
 ### Challenges we faced
