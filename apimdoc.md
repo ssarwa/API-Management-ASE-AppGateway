@@ -57,30 +57,19 @@ The Web APIs will be hosted as a platform as a service (PaaS) applications on Az
 
 ### Availability
 
-- Consider leveraging the [typical design patterns for availability][design-patterns-availability] when building your cloud application.
-- Review the availability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-- For additional considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
+- For considerations concerning availability, see the [availability checklist][availability] in the Azure Architecture Center.
 
 ### Scalability
 
-- When building a cloud application be aware of the [typical design patterns for scalability][design-patterns-scalability].
-- Review the scalability considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture]
-- For other scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
+- For scalability topics, see the [scalability checklist][scalability] available in the Azure Architecture Center.
 
 ### Security
 
-- Consider leveraging the [typical design patterns for security][design-patterns-security] where appropriate.
-- Review the security considerations in the appropriate [App Service web application reference architecture][app-service-reference-architecture].
-- Consider following a [secure development lifecycle][secure-development] process to help developers build more secure software and address security compliance requirements while reducing development cost.
-- Review the blueprint architecture for [Azure PCI DSS compliance][pci-dss-blueprint].
+- For general guidance on designing secure solutions, see the [Azure Security Documentation][security]
 
 ### Resiliency
 
-- Consider leveraging the [circuit breaker pattern][circuit-breaker] to provide graceful error handling should one part of the application not be available.
-- Review the [typical design patterns for resiliency][design-patterns-resiliency] and consider implementing these where appropriate.
-- You can find a number of [recommended practices for App Service][resiliency-app-service] in the Azure Architecture Center.
-- Consider using active [geo-replication][sql-geo-replication] for the data tier and [geo-redundant][storage-geo-redudancy] storage for images and queues.
-- For a deeper discussion on [resiliency][resiliency], see the relevant article in the Azure Architecture Center.
+- For general guidance on designing resilient solutions, see [Designing resilient applications for Azure][resiliency].
 
 ## Deployment scenario
 
@@ -141,10 +130,11 @@ Able to test the APIM services APIs using Azure Portal
 
 #### Deploy using ARM template
 
-<a href="https://portal.azure.com/#create/Microsoft.Template/uri/./azuredeploy.json" target="_blank">
+<a href="https://portal.azure.com/#create/Microsoft.Template/uri/ https%3A%2F%2Fraw.githubusercontent.com%2Fsrikantsarwa%2FAPI-Management-ASE-AppGateway%2Fmaster%2Fazuredeploy.json" target="_blank">
     <img src="https://azuredeploy.net/deploybutton.png"/>
 </a>
 
+The above ARM template would create a skeloton reosurces for this specific example scenario which further needs to be modified and edited to successfully achieve the requirements. Please refer the deployment points above to verify each resource. 
 
 ## Pricing
 
@@ -156,6 +146,10 @@ Customers can scale API Management by adding and removing units. Each unit has c
 > The Developer tier can be used for evaluation of the API Management features. The Developer tier should not be used for production.
 
 To view projected costs and customize to your deployment needs, you can modify the number of scale units and App Service instances in the [Azure Pricing Calculator][pricing-calculator].
+
+Similarly, the [App Service Environments pricing guidance is provided here][ase-pricing]
+
+Application Gateway pricing can be be [configured here][appgtwy-pricing] depending upon the required tier and resources 
 
 ## Related resources
 
@@ -183,3 +177,9 @@ Check out the related scenario on [Migrating legacy web APIs to API Management][
 [pricing-calculator]: https://azure.com/e/0e916a861fac464db61342d378cc0bd6
 [azure-er]: https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction
 [azure-mon]: https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/monitoring-overview
+[ase-pricing]: https://azure.microsoft.com/en-us/pricing/details/app-service/windows/
+[appgtwy-pricing]: https://azure.microsoft.com/en-us/pricing/details/application-gateway/
+[availability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/availability
+[scalability]: https://docs.microsoft.com/en-us/azure/architecture/checklist/scalability
+[security]: https://docs.microsoft.com/en-us/azure/security/
+[resiliency]: https://docs.microsoft.com/en-us/azure/architecture/resiliency/index
