@@ -20,7 +20,7 @@ There are few scenarios where organizations host multiple APIs using App Service
 1. Custom Domain Name purchased (like on godaddy)
 2. Since we are using actual custom domain, procuring a SSL certificates (we used a wild card one from Azure Certificates Service) to use one for all our custom domains
 
-### Deployment flow for the resources and putting the pieces together  
+### Deployment in sequence of resources and putting the pieces together  
 The deployment process was in the sequence as below
 
 1. VNET with the following configurations: ase-internal-vnet
